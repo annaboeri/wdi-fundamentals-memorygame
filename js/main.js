@@ -25,10 +25,11 @@ var cards = [
 var cardsInPlay = [];
 
 var checkForMatch = function () {
-	if (cardsInPlay[0] === cardsInPlay[1]) {
-	alert("You found a match!");
+	console.log("Checking for match");
+	if (cardsInPlay[cardsInPlay.length - 2] === cardsInPlay[cardsInPlay.length - 1]) {
+		document.getElementById("match-alert").innerHTML = "You found a match!";
 	} else {
-	alert("Sorry, try again.");
+		document.getElementById("match-alert").innerHTML = "Not a match. Try again.";
 	}
 };
 
@@ -40,10 +41,11 @@ var flipCard = function (){
 	console.log("User flipped " + cards[cardId].rank);
 	console.log(cards[cardId].suit);
 	console.log(cards[cardId].cardImage);
-		if (cardsInPlay.length === 2){
+		if (cardsInPlay.length % 2 === 0){
 		checkForMatch();
 	};
 };
+
 
 
 //function that loops through cards array and adds a click event to each card, so that when a card is clicked, the flipCard function will run
@@ -59,7 +61,7 @@ var createBoard = function (){
 
 createBoard(); 
 
-//Fisher-Yates shuffle 
+//shuffles cards using a version of the Fisher-Yates shuffle 
 function shuffle(array) {
   var m = array.length, t, i;
 
@@ -80,11 +82,14 @@ var resetBoard = function (){
 		};
 		createBoard();
 		shuffle(cards);
+
+		//clear alert text
+		document.getElementById("match-alert").innerHTML = " ";
 };
 
 document.getElementById("reset").addEventListener("click", resetBoard);
 
 
-//keep track of and display user score   
+
 
 

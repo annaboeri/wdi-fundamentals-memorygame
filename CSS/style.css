@@ -58,6 +58,10 @@ p {
 	font-size: 18px;
 }
 
+#match-alert {
+	color: red;
+}
+
 button {
 	font-family: "Droid Serif";
 	font-weight: 500;
@@ -76,6 +80,7 @@ button:hover {
 	background-color: #555555;
 	color:white;
 }
+
 
 img {
 	margin: 40px 8px 0 8px;
